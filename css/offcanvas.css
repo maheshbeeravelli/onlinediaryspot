@@ -21,7 +21,7 @@ footer {
 			position: absolute;
 			top: 105px;
 			
-      width: 0px;
+      width: 263px;
       overflow: hidden;
 			left:100%; 
 			padding:0;
@@ -31,15 +31,29 @@ footer {
 		{    
 			overflow: hidden;
 			width:263px;
-			left:20%;
+			left:50%;
+			border-color:red;
 			-webkit-transition: all 2s ease 0s;
 			-moz-transition: all 2s ease 0s;
 			-o-transition: all 2s ease 0s;
 			transition: all 2s ease 0s;
+			z-index:5;
 			
     }	
   
   
 
 }
-
+@media screen and (max-width: 550px) {
+  .sidenav.on{
+      overflow: hidden;
+			width:263px;
+			left:18%;
+			border-color:red;
+			-webkit-transition: all 2s ease 0s;
+			-moz-transition: all 2s ease 0s;
+			-o-transition: all 2s ease 0s;
+			transition: all 2s ease 0s;
+			z-index:5;
+  }
+}
