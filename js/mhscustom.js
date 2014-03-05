@@ -1,5 +1,7 @@
 $(document).ready(function(){  
-
+$('#navigator').click(function(){$('.sidenav').toggleClass('on');
+//alert("clicked on the navigator");
+});
 var isEdit=false; 
 
   $( "#search_text" ).animate({
