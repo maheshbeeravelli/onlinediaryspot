@@ -1,0 +1,202 @@
+​<!DOCTYPE html>
+{% autoescape true %}
+<html>
+<head>
+  <title>Online Diary Spot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<link href="css/bootstrap.min3.css" rel="stylesheet">
+
+<link href="css/offcanvas.css" rel="stylesheet">
+
+<style>
+
+</style>
+  <link href="css/bootstrap-responsive.css" rel="stylesheet"> 
+</head>
+<body>
+  <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Online Diary Spot</a>
+      </div>
+        <div class="collapse navbar-collapse ">
+          <!-- <p class="navbar-text pull-right">
+            Hello <a href="#" class="navbar-link">{{user}}</a><a href="{{logout}}" class="navbar-link">&#09;Logout</a>
+          </p> -->
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/showall">Show</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div> <!-- End of Container-->
+    </div> <!-- Navbar-->
+  
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            <form action='/' id="dataform" method="post">
+              <li class="nav-header">Type:</li>
+             <li> 
+              <input type="hidden" name="data_type" id="alignment" value="" />
+              <div class="btn-group alignment span12">
+                <button type="button" class="btn btn-info span4">Notes</button>
+                <button type="button" class="btn span4">Link</button>
+                <button type="button" class="btn span4">Date</button>
+              </div>
+
+             </li>
+              
+              <li class="nav-header">Title:</li>
+              <li><input class="span12" name="title" type="text" value=""/></li>
+              
+              <li class="nav-header">Details:</li>
+              <li><textarea class="span12" type="textarea" rows="4" cols="20" name="Text"></textarea></li>
+              <li class="nav-header">Date(DD/MM/YYYY):</li>
+              <li><input class="span12" type="text" name="Date"  width="50px" value=""/></li>
+              <p><input class="span12 btn" type="submit" value="Submit" /></p>
+            </form>
+          </ul>
+        </div><!--/.well--> 
+      </div><!--/span-->
+      <div class="span9">
+        <div class="hero-unit">
+          <p>This is a online diaryspot for application for your favourite details,dates and links.</p>
+          <div class="bs-example">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Title</th>
+                  <th>Details</th>
+                  <th>Type</th>
+                  <th>Date</th>
+                  <th>Added On</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                {% for row in all_rows %}
+                <tr>
+                  <td></td>
+                  <td>{{ row.title }}</td>
+                  <td>{{row.text}}</td>
+                  <td>{{row.data_type}}</td>
+                  <td>{{row.date}}</td>
+                  <td>{{row.added_on}}</td>
+
+                </tr>
+                {% endfor %}
+
+              </tbody>
+            </table>
+<ul class="pagination pagination-lg">
+  <li><a href="#">&laquo;</a></li>
+  <li><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">&raquo;</a></li>
+</ul>
+
+            <ul class="pager">
+              <li><a href="#">Previous</a></li>
+              <li><a href="#">Next</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn" href="#">View details &raquo;</a></p>
+          </div><!--/span-->
+          <div class="span4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn" href="#">View details &raquo;</a></p>
+          </div><!--/span-->
+          <div class="span4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn" href="#">View details &raquo;</a></p>
+          </div><!--/span-->
+        </div><!--/row-->
+        <div class="row-fluid">
+          <div class="span4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn" href="#">View details &raquo;</a></p>
+          </div><!--/span-->
+          <div class="span4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn" href="#">View details &raquo;</a></p>
+          </div><!--/span-->
+          <div class="span4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn" href="#">View details &raquo;</a></p>
+          </div><!--/span-->
+        </div><!--/row-->
+      </div><!--/span-->
+    </div><!--/row-->
+
+    <hr>
+
+ <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Launch demo modal</a>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
+    <footer>
+      <p>&copy; Company 2013</p>
+    </footer>
+    
+  </div><!--/.fluid-container-->
+  <script src="js/jquery3.js"></script>
+  <script src="js/bootstrap.min3.js"></script>
+  <script src="js/offcanvas.js"></script><!--script src="js/button.js"></script>-->
+  <!-- End of Page Wrap -->
+
+  <script type="text/javascript">
+  $(".alignment .btn").click(function() {
+    // whenever a button is clicked, set the hidden helper
+    $("#alignment").val($(this).text());
+    $(".alignment").find("button").removeClass("btn-info");
+    $(this).addClass("btn-info"); 
+    //alert($("#alignment").val());
+  }); 
+  </script>
+</body>
+</html>
+{% endautoescape %}

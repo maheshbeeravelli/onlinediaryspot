@@ -1,0 +1,38 @@
+#socialmediaplugins {
+    text-align: right;
+    position: fixed;
+    /*background-color: rgb(153, 153, 153);*/
+    /*width:250px;*/
+    margin: 0px;
+    padding: 5px;
+    padding-right: 0px;
+    top: 65px;
+    z-index: 1000;
+    right: -3px;
+}
+
+.wrapword{
+white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+white-space: -pre-wrap;      /* Opera 4-6 */
+white-space: -o-pre-wrap;    /* Opera 7 */
+white-space: pre-wrap;       /* css-3 */
+word-wrap: break-word;       /* Internet Explorer 5.5+ */
+word-break: break-all;
+white-space: normal;
+}
+
+@media screen and (max-width: 500px){
+	div.nav ul li {
+		width:50%;
+		font-size:82%;
+	}
+	
+	div.mobile-collapse{
+		width:auto;
+		float: none;
+		margin-right:0;
+	}
+	.hide-mobile{
+		display:none;
+	}
+}
