@@ -1,7 +1,17 @@
 $(document).ready(function(){  
-$('#navigator').click(function(){$('.sidenav').toggleClass('on');
-//alert("clicked on the navigator");
+
+$('#navigator').click(function(){
+  $('.sidenav').toggleClass('on');
+  var doc_width=$(document ).width();
+  // $(".sidenav").css({left:260});
+  if($(this).text()=="Hide Form")
+  {
+    $(this).text("Show Form");
+  }else{
+    $(this).text("Hide Form");
+  }
 });
+
 var isEdit=false; 
 
   $( "#search_text" ).animate({
