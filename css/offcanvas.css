@@ -14,7 +14,7 @@ footer {
  * Off Canvas
  * --------------------------------------------------
  */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px){
   
   .sidenav
 		{
@@ -31,7 +31,7 @@ footer {
 		{    
 			overflow: hidden;
 			width:263px;
-			left:50%;
+			/*left:50%;*/
 			border-color:red;
 			-webkit-transition: all 2s ease 0s;
 			-moz-transition: all 2s ease 0s;
@@ -44,11 +44,11 @@ footer {
   
 
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 520px) {
   .sidenav.on{
       overflow: hidden;
 			width:263px;
-			left:18%;
+			/*left:40%;*/
 			border-color:red;
 			-webkit-transition: all 2s ease 0s;
 			-moz-transition: all 2s ease 0s;

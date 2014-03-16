@@ -63,7 +63,7 @@
               <li class="active"><a href="/">Home</a></li>
               <li><a href="/showall">Show All</a></li>
               <li><a href="#">Blog</a></li>
-              <li><a href="#contact">Contact Us</a></li>
+              <li><a><span id="contactus" style="cursor:pointer">Contact Us</span></a></li>
             </ul>
             <div class="navbar-form navbar-right">
               <span class="glyphicon glyphicon-user"></span><span class="navbar-link">Hello &nbsp;</span><i href="#" class="navbar-link">{{user}}&nbsp;</i><a href="{{logout}}" class="navbar-link">{{web_action}}</a>
@@ -245,7 +245,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title"><span class="modal_title"></span> </h4>
+                <h4 class="modal-title"><span class="modal_title">Contact Us</span> </h4>
                 <input id="modal_key" type="hidden" name="modal_key" value="" />
                 <div style="margin:0 auto"> <br/>
                 <a id="modal_edit"  data-dismiss="modal" text-decoration="none"><span class="glyphicon glyphicon-edit">Edit</span></a>
@@ -272,9 +272,54 @@
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
 
+<div id="contactus_modal" class="modal fade wrapword">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Contact Us</h4>
+                <!--<input id="modal_key" type="hidden" name="modal_key" value="" />-->
+                <!--<div style="margin:0 auto"> <br/>-->
+                <!--<a id="modal_edit"  data-dismiss="modal" text-decoration="none"><span class="glyphicon glyphicon-edit">Edit</span></a>-->
+                <!--<a id="modal_delete" text-decoration="none"><span class="glyphicon glyphicon-trash">Delete</span></a>-->
+            
+              </div>
+              <div class="modal-body" background="#000">
+                
+               <form id="contactus_form" role="form" method="post" action="/contactus"> 
+                <div class="form-group">
+                  <label for="data_title">Name:</label>
+                  <input id="contactus_name" name="contactus_name" class="form-control" placeholder="Please enter your name" type="text">
+                </div>
+                
+                <div class="form-group">
+                  <label for="data_title">Email:</label>
+                  <input id="contactus_email" name="contactus_email" class="form-control" placeholder="Please enter your email address" type="text">
+                </div>
+                
+                <div class="form-group">
+                  <label for="data_description"><span id="linkordesc">Description:</span></label>
+                  <textarea id="contactus_description" name="contactus_desc" class="form-control" placeholder="Input what you want to know from us." type="textarea" rows="6" cols="20" name="data_description"></textarea>
+                </div>
+                <button type="submit">Submit</button> 
+              </form>
+                
+                <!--<div class="form-group" style="visible:false">-->
+                <!--  <label for="data_date">Date(DD/MM/YYYY):</label>-->
+                <!--  <input id="contactus_date" name="data_date" class="form-control" placeholder="DD/MM/YYYY" script="document.getElementById('contactus_date').value = Date();" type="text">-->
+                <!--</div>-->
+                <!-- </form> -->
+              
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="contactus_send" type="button" class="btn btn-default">Send</button> 
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
-
-<div id="socialmediaplugins" class="1navbar-inverse col-sm-2">    
+<div id="socialmediaplugins" class="1navbar-inverse col-sm-2 hide-mobile">    
     <div class="input-group">
       <input id="search_text" type="text" width="0px" class="form-control" placeholder="Search Keyword">
       <span class="input-group-btn">

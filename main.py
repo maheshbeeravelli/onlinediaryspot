@@ -130,7 +130,14 @@ class MyDataStore(db.Model):
 	date = db.StringProperty()
 	data_type= db.StringProperty()
 	added_on = db.DateTimeProperty(auto_now_add=True)
-
+	
+class ContactUs(db.Model):
+  email=db.EmailProperty()
+  author = db.EmailProperty()
+  name=db.StringProperty()
+  date=db.DateTimeProperty(auto_now_add=True)
+  description=db.TextProperty()
+  
 class MyDataStoreDeleted(db.Model):
     author=db.UserProperty()
     title=db.StringProperty()
@@ -295,7 +302,9 @@ class ShowAll(webapp2.RequestHandler):
             for d in my_data:
                 if(d.data_type=='Link'):
                     if(d.text[:7]=="http://"):
-                        table_rowfactoty=  ('<tr><td><a href="%s" target="_blank">%s</td>' % (d.text,d.title))    
+                      self.redirect("/")
+        
+                      table_rowfactoty=  ('<tr><td><a href="%s" target="_blank">%s</td>' % (d.text,d.title))    
                     else:
                         table_rowfactoty=  ('<tr><td><a href="http://%s" target="_blank">%s</td>' % (d.text,d.title))
 
@@ -422,7 +431,28 @@ class SearchHandler(webapp2.RequestHandler):
             template = JINJA_ENVIRONMENT.get_template('offcanvas.html')
             self.response.write(template.render(template_values))
 
+class Contactus(webapp2.RequestHandler):
+    def post(self):
+        
+        try:
+            #self.response.write(current_row.author+users.get_current_user)
+            name=self.request.get("contactus_name")
+            description = self.request.get("contactus_desc")
+            user=users.get_current_user()
+            if user:
+                user_email=user.email()
+                # self.response.write("1st your Query is successfully submitted"+name+":"+email+":"+description)
+            else:
+                email=self.request.get("contactus_email")
+            new_data=ContactUs(email=email,author=user_email,name=name,description=description)
+            new_data.put()
+            # self.response.write("Your Query is successfully submitted"+name+":"+email+":"+description)
+        except Exception, e:
+            self.redirect("/")
+
+
+
 app = webapp2.WSGIApplication([('/', Main),('/search', SearchHandler),
-    ('/main', MainHandler),('/showall',ShowAll),('/update',Update),('/delete',Delete_Row)
+    ('/main', MainHandler),('/showall',ShowAll),('/update',Update),('/delete',Delete_Row),('/contactus',Contactus)
 ], debug=True)
 

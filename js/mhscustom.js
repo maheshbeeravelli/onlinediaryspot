@@ -3,12 +3,15 @@ $(document).ready(function(){
 $('#navigator').click(function(){
   $('.sidenav').toggleClass('on');
   var doc_width=$(document ).width();
-  // $(".sidenav").css({left:260});
+  var custom_width=doc_width-260;
   if($(this).text()=="Hide Form")
   {
     $(this).text("Show Form");
+    $(".sidenav").css("left","100%");
+    
   }else{
     $(this).text("Hide Form");
+    $(".sidenav").css("left","-=270px");
   }
 });
 
@@ -181,5 +184,12 @@ var search=false;
   });
   
   $("#modal_edit").css("cursor","pointer");
+  $("#contactus").click(function(){
+      $("#contactus_modal").modal();
+  });
+  $("#contactus_send").click(function(){
+    $("contactus_form").submit();
+    $("#contactus_modal").modal('hide');
+  });
 
 }); //End of Document Load Jquery 
