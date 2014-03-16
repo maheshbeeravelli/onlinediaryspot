@@ -442,12 +442,14 @@ class Contactus(webapp2.RequestHandler):
             if user:
                 user_email=user.email()
                 # self.response.write("1st your Query is successfully submitted"+name+":"+email+":"+description)
-            else:
-                email=self.request.get("contactus_email")
+            
+            email=self.request.get("contactus_email")
             new_data=ContactUs(email=email,author=user_email,name=name,description=description)
             new_data.put()
             # self.response.write("Your Query is successfully submitted"+name+":"+email+":"+description)
+            self.redirect("/")
         except Exception, e:
+            # self.response.write(e)
             self.redirect("/")
 
 
